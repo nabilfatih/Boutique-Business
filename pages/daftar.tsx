@@ -15,20 +15,20 @@ interface FormValues {
   syaratKetentuan: boolean;
 }
 
-const Daftar: NextPage = () => {
-  const validationSchema = yup.object().shape({
-    name: yup.string().required("Masukkan nama"),
-    email: yup.string().email("Email tidak valid").required("Masukkan email"),
-    password: yup.string().required("Masukkan kata sandi"),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password"), null], "Kata sandi harus sama")
-      .required("Masukkan konfirmasi kata sandi"),
-    syaratKetentuan: yup
-      .boolean()
-      .oneOf([true], "Kamu harus menyetujui syarat dan ketentuan"),
-  });
+const validationSchema = yup.object().shape({
+  name: yup.string().required("Masukkan nama"),
+  email: yup.string().email("Email tidak valid").required("Masukkan email"),
+  password: yup.string().required("Masukkan kata sandi"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Kata sandi harus sama")
+    .required("Masukkan konfirmasi kata sandi"),
+  syaratKetentuan: yup
+    .boolean()
+    .oneOf([true], "Kamu harus menyetujui syarat dan ketentuan"),
+});
 
+const Daftar: NextPage = () => {
   const {
     register,
     handleSubmit,

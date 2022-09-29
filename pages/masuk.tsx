@@ -12,12 +12,12 @@ interface FormValues {
   password: string;
 }
 
-const Masuk: NextPage = () => {
-  const validationSchema = yup.object().shape({
-    email: yup.string().email("Email tidak valid").required("Masukkan email"),
-    password: yup.string().required("Masukkan kata sandi"),
-  });
+const validationSchema = yup.object().shape({
+  email: yup.string().email("Email tidak valid").required("Masukkan email"),
+  password: yup.string().required("Masukkan kata sandi"),
+});
 
+const Masuk: NextPage = () => {
   const {
     register,
     handleSubmit,
