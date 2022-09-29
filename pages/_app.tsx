@@ -39,9 +39,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-
+      <Progress isAnimating={isAnimating} />
       <SessionProvider session={pageProps.session}>
-        <Progress isAnimating={isAnimating} />
         <Component {...pageProps} />
       </SessionProvider>
     </>
